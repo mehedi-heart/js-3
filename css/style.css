@@ -1,0 +1,47 @@
+form.signup-form {
+    margin: 30px auto;
+    width: 510px;
+}
+input.form-co {
+    width: 100%;
+    margin: 6px 0;
+    padding: 14px 10px;
+    font-size: 14px;
+    border: 1px solid rgba(102, 102, 102, 0.44);
+    height: 45px;
+}
+span#passwordtext {
+    position: absolute;
+    left: 95%;
+    bottom: 38%;
+    font-size: 16px;
+    font-weight: bold;
+    transform: translate(-95%,-38%);
+}
+input#passwordid {
+    position: relative;
+}
+@media (min-width: 992px){
+    .modal-lg {
+    width: 700px;
+}
+}
+
+#primenumber {
+    width: 200px;
+    height: 38px;
+    margin: 0 auto;
+    display: block;
+}
+.btn-customize{
+    display: table;
+    margin: 15px auto;
+        background: rgba(19, 154, 22, 0.65);
+    color: #fff;
+}
+#m{
+      width: 200px;
+    height: 38px;
+    margin: 0 auto;
+    display: block;
+}

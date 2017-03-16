@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>javascript another project</title>
+   <link href="css/bootstrap.css" rel="stylesheet">
+   <link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body> 
+   
+ 
+
+<!-- Small modal -->
+
+<div class="modal fade modaldata" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+         <form class="signup-form" name="signup">
+      <input type="text" class="form-co" name="fname" placeholder="First Name">
+      <input type="email"  class="form-co"name="email" placeholder="Email Address">
+      <input type="text"  class="form-co"name="nm" placeholder="phone number">
+      <input type="password"  class="form-co "name="pw" id="passwordid" onkeyup="passwordkey()"  placeholder="password">
+      <span id="passwordtext"></span>
+      <input type="password" class="form-co" name="rpw" placeholder="retype-password">
+      
+      <button type="button" class="btn btn-lg btn-primary" onclick="clickme()">sign up</button>
+      
+      <h3 id="show"></h3>
+      
+  </form>
+      </div>
+    </div>
+  </div>
+</div>
+   
+
+  <h2 id="demo" class="text-center"></h2>
+  
+  
+  <!--palindrome-->
+  
+  <input type="text" id="m" >
+  <button type="button" onclick="palindrome()" class=" btn btn-customize" >get palindrome</button>
+  <h4 id="palindromeshow" class="text-center"></h4>
+  
+  <!--palindrome-->
+  
+  
+  <!--prime number-->
+  
+  <input type="text" id="primenumber">
+  
+  <button type="button" class=" btn btn-customize" onclick="prime()">click to see prime number</button>
+  
+  <h4 id="primeshow" class="text-center"></h4>
+  
+  <!--prime number-->
+  
+  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+   <script src="js/bootstrap.min.js"></script>
+  <script>
+      
+       
+       function clickme(){
+           var fname = document.signup.fname.value;
+           var email = document.signup.email.value;
+           var ph = document.signup.nm.value;
+           var pw = document.signup.pw.value;
+           var rpw = document.signup.rpw.value;
+            
+           var visible = document.getElementById("show");
+          
+           if (fname == "" || email == "" || ph == "" || pw == "" || rpw == ""){
+                visible.innerHTML= "you can not empty any field"
+           }
+           else if(ph.length < 11){
+                visible.innerHTML= "enter perfect phone number"
+           }
+           else if(pw.length < 6){
+               visible.innerHTML= "enter minimum 6 digit number"
+             }
+              
+           else if(pw != rpw){
+               visible.innerHTML= "password not matched"
+           }else{
+                visible.innerHTML= "your data is send"
+           }
+       }
+       
+      
+       function passwordkey(){
+           var passwordup = document.getElementById("passwordid").value;
+           
+          if (passwordup.length < 4){
+               document.getElementById("passwordtext").innerHTML = "weak";
+               document.getElementById("passwordtext").style.color = "red";
+           }else if(passwordup.length <= 6){
+                document.getElementById("passwordtext").innerHTML = "medium";
+               document.getElementById("passwordtext").style.color = "blue";
+           }else{
+               document.getElementById("passwordtext").innerHTML = "strong";
+               document.getElementById("passwordtext").style.color = "green";
+           }
+       }
+      
+      
+      
+     setTimeout(
+          function(){
+                $('.modaldata').modal('show');
+          }
+          ,4000);
+     
+      function clock(){
+             var a = new Date();
+      var Time = a.toLocaleString();
+  document.getElementById("demo").innerHTML=Time;
+      }
+      setInterval(
+             function(){
+                 clock();
+             }
+          ,1000)
+      
+      
+      //palindrome
+      
+      function palindrome(){
+
+var pal = document.getElementById("m").value;
+
+var l = pal.length;
+
+
+
+var str = "";
+
+for(var n=l; n >= 0; n--){
+
+str =str + pal.charAt(n);
+
+}
+
+
+
+if(pal == str){
+
+document.getElementById("palindromeshow").innerHTML = "palindrome"
+
+}else{
+
+document.getElementById("palindromeshow").innerHTML = "not palindrome"
+
+}
+
+}
+      
+      
+      
+      //prime number
+      
+      function prime(){
+          var s = document.getElementById("primenumber").value;
+          
+          var f = 0;
+          var g= 2;
+          for (g;g<s;g++){
+              if(s%g == 0){
+                  f=g;
+              }
+          }if(f==0){
+              document.getElementById("primeshow").innerHTML = s + "is a prime number";
+          }else{
+              document.getElementById("primeshow").innerHTML =  s + "is not a prime number";
+          }
+          
+      }
+     
+ </script>
+    
+</body>
+
+</html>
